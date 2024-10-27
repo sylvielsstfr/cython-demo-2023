@@ -1,0 +1,57 @@
+[project]
+name ="cython-demo"
+license = {file = "LICENSE"}
+readme = "README.md"
+authors = [
+    { name = "serdar from InfoWorld on you-tube" }
+]
+maintainers = [
+  {name = "Sylvie Dagoret-Campagne"}
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "License :: OSI Approved :: MIT License",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+]
+dynamic = ["version"]
+requires-python = ">=3.9"
+
+dependencies = [
+"Cython>=3.0.0",
+"build",
+"setuptools",
+"numpy",
+"pyglet",
+]
+
+[project.optional-dependencies]
+dev = ["Cython>3.0.0","build","setuptools"]
+
+[build-system]
+requires = [
+    "setuptools>=62", # Used to build and package the Python project
+    "setuptools_scm>=6.2", # Gets release version from git. Makes it available programmatically
+    "numpy",
+    "Cython>=3.0.0",
+]
+build-backend = "setuptools.build_meta"
+
+#[project.scripts]
+unoptimized = "unoptimized.main:main"
+cythonmode = "cythonmode.main:main"
+purepythonmode = "purepythonmode.main:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["unoptimized","cythonmode","purepythonmode"]
+
+#[tools.setuptools.exclude-package-data]
+#cython-demo = ["life.c"]
+
+[tool.setuptools_scm]
+write_to = "src/_version.py"
+
+
