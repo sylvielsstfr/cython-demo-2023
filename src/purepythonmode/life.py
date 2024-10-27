@@ -1,12 +1,3 @@
-# cython: language_level=3
-# cython: boundscheck=False
-# cython: wraparound=False
-# cython: initializedcheck=False
-# cython: cdivision = True
-# cython: always_allow_keywords =False
-# cython: unraisable_tracebacks = False
-# cython: binding = False
-
 import cython
 
 if cython.compiled:
